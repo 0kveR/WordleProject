@@ -14,12 +14,14 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.text.toSpannable
 
 class MainActivity : AppCompatActivity() {
     private val wordList = FourLetterWordList
     private var guesses = 3
     private var wins = 0
+    private var category = FourLetterWordList.ListType.GENERAL
     private lateinit var button: Button
     private lateinit var answer: TextView
     private lateinit var wordToGuess: String
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Setting Word
-        randomWord()
+        randomWord(category)
 
         button.setOnClickListener {
             if (guesses > 0) {
@@ -76,15 +78,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            val data: Intent? = result.data
+
+            if (data != null) {
+                val retrieveMode = data.getSerializableExtra("Category")
+                val mode = retrieveMode as FourLetterWordList.ListType
+
+                if (category != mode) {
+                    category = mode
+                    resetButton()
+                }
+            }
+        }
+
         helpButton.setOnClickListener {
             val intent = Intent(this, HelpPage::class.java)
-            startActivity(intent)
+            intent.putExtra("Category", category)
+            resultLauncher.launch(intent)
         }
     }
 
-    private fun randomWord() {
+    private fun randomWord(mode: FourLetterWordList.ListType) {
         // Getting a random word
-        wordToGuess = wordList.getRandomFourLetterWord().lowercase()
+        wordToGuess = wordList.getRandomFourLetterWord(mode).lowercase()
         Log.i("correctWord", wordToGuess)
         answer.text = wordToGuess
     }
@@ -217,7 +234,7 @@ class MainActivity : AppCompatActivity() {
         }
         makeInvisible(answer)
 
-        randomWord()
+        randomWord(category)
     }
 
     private fun makeInvisible(v: View) {

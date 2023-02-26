@@ -17,7 +17,7 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] User can toggle between different word lists
+- [x] User can toggle between different word lists
 - [x] User can see the 'correctness' of their guess through colors on the word 
 - [ ] User sees a visual change after guessing the correct word
 - [x] User can tap a 'Reset' button to get a new word and clear previous guesses

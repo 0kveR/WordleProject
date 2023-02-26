@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Wordle-Project</string>
-    <string name="help_description">You have 3 attempts to guess the word. Guess the word multiple times to increase your win streak.\n\nThe check will show you which letters were correct.\n\nGreen means that the letter was correct and in the right position.\n\nRed means the letter was correct and in the wrong position.\n\nGray means the letter is incorrect.</string>
+    <string name="help_description">You have 3 attempts to guess the word. Guess the word multiple times to increase your win streak.\n\nThe check will show you which letters were correct.\n\nGreen means that the letter was correct and in the right position.\n\nRed means the letter was correct and in the wrong position.\n\nGray means the letter is incorrect.\n\nClick on one of the buttons below to choose a category!\n\nHave fun!</string>
 </resources>
