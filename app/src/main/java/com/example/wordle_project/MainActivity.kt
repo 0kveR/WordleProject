@@ -1,14 +1,18 @@
 package com.example.wordle_project
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.text.toSpannable
 
 class MainActivity : AppCompatActivity() {
     private val wordList = FourLetterWordList
@@ -89,7 +93,7 @@ class MainActivity : AppCompatActivity() {
                 val answerField: TextView = viewGroupOne[2] as TextView
                 val resultField: TextView = viewGroupOne[3] as TextView
                 answerField.text = textField.text
-                resultField.text = result
+                resultField.text = getSpannable(textField.text.toString(), result)
                 answerField.visibility = View.VISIBLE
                 resultField.visibility = View.VISIBLE
                 textField.text.clear()
@@ -105,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                 val answerField: TextView = viewGroupTwo[2] as TextView
                 val resultField: TextView = viewGroupTwo[3] as TextView
                 answerField.text = textField.text
-                resultField.text = result
+                resultField.text = getSpannable(textField.text.toString(), result)
                 answerField.visibility = View.VISIBLE
                 resultField.visibility = View.VISIBLE
                 textField.text.clear()
@@ -120,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 val answerField: TextView = viewGroupThree[2] as TextView
                 val resultField: TextView = viewGroupThree[3] as TextView
                 answerField.text = textField.text
-                resultField.text = result
+                resultField.text = getSpannable(textField.text.toString(), result)
                 answerField.visibility = View.VISIBLE
                 resultField.visibility = View.VISIBLE
                 textField.text.clear()
@@ -136,6 +140,26 @@ class MainActivity : AppCompatActivity() {
         if (guesses == 0) {
             setForLoss()
         }
+    }
+
+    private fun getSpannable(word: String, result: String): Spannable {
+        val finalString: Spannable = word.toSpannable()
+
+        for (i in 0..3) {
+            when (result[i]) {
+                '+' -> {
+                    finalString.setSpan(ForegroundColorSpan(Color.RED), i, i+1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+                }
+                'O' -> {
+                    finalString.setSpan(ForegroundColorSpan(Color.GREEN), i, i+1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+                }
+                else -> {
+                    finalString.setSpan(ForegroundColorSpan(Color.BLACK), i, i+1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+                }
+            }
+        }
+
+        return finalString
     }
 
     @SuppressLint("ResourceAsColor", "SetTextI18n")
