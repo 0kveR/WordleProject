@@ -1,10 +1,10 @@
 # Android Project 1 - *Guess the Word*
 
-Submitted by: **Krrish verma**
+Submitted by: **Krrish Verma**
 
 **Guess the Word** is an android app that recreates a simple version of the popular word game [Wordle](https://www.nytimes.com/games/wordle/index.html). 
 
-Time spent: **x** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] User can click on the help button that launches a new activity which explains how to play.
 
 ## Video Walkthrough
 
@@ -47,7 +47,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2023 Krrish Verma
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
