@@ -169,10 +169,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="100dp"
         android:textSize="40sp"
         android:textColor="@color/black"
         android:layout_marginBottom="100dp"
         android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/winStreak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="Current Wins: 0"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/answer" />
 
     <EditText
         android:id="@+id/enter_answer"

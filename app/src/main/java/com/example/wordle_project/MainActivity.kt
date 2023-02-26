@@ -13,12 +13,13 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     private val wordList = FourLetterWordList
     private var guesses = 3
-    private var wonGame: Boolean = false
+    private var wins = 0
     private lateinit var button: Button
     private lateinit var answer: TextView
     private lateinit var wordToGuess: String
     private lateinit var textField: EditText
     private lateinit var result: String
+    private lateinit var winStreak: TextView
     private lateinit var viewGroupOne: Array<View>
     private lateinit var viewGroupTwo: Array<View>
     private lateinit var viewGroupThree: Array<View>
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         button = findViewById(R.id.button)
         textField = findViewById(R.id.enter_answer)
         answer = findViewById(R.id.answer)
+        winStreak = findViewById(R.id.winStreak)
 
         // Assigning views to group
         viewGroupOne = arrayOf(
@@ -140,7 +142,8 @@ class MainActivity : AppCompatActivity() {
     private fun setForWin() {
         guesses = 0
         answer.visibility = View.VISIBLE
-        wonGame = true
+        wins++
+        winStreak.text = "Current Wins: $wins"
         button.setBackgroundColor(R.color.button_win)
         Toast.makeText(this, "Congrats! You Won!", Toast.LENGTH_SHORT).show()
         button.text = "Retry?"
@@ -150,6 +153,11 @@ class MainActivity : AppCompatActivity() {
     private fun setForLoss() {
         answer.visibility = View.VISIBLE
         button.setBackgroundColor(R.color.button_lose)
+        if (wins > 0) {
+            wins = 0
+            winStreak.text = "Current Wins: $wins"
+        }
+
         button.text = "Retry?"
     }
 

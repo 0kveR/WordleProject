@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 - [ ] User sees a visual change after guessing the correct word
 - [x] User can tap a 'Reset' button to get a new word and clear previous guesses
 - [x] User will get an error message if they input an invalid guess
-- [ ] User can see a 'streak' record of how many words they've guessed correctly.
+- [x] User can see a 'streak' record of how many words they've guessed correctly.
 
 The following **additional** features are implemented:
 
