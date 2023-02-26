@@ -70,6 +70,8 @@ class MainActivity : AppCompatActivity() {
         randomWord(category)
 
         button.setOnClickListener {
+            closeKeyboard()
+
             if (guesses > 0) {
                 guessButton()
             } else {
@@ -95,6 +97,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, HelpPage::class.java)
             intent.putExtra("Category", category)
             resultLauncher.launch(intent)
+        }
+    }
+
+    private fun closeKeyboard() {
+        val v= this.currentFocus
+        if (v != null) {
+            val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(v.windowToken, 0)
         }
     }
 
