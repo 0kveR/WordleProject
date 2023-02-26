@@ -19,7 +19,7 @@ The following **optional** features are implemented:
 
 - [x] User can toggle between different word lists
 - [x] User can see the 'correctness' of their guess through colors on the word 
-- [ ] User sees a visual change after guessing the correct word
+- [x] User sees a visual change after guessing the correct word
 - [x] User can tap a 'Reset' button to get a new word and clear previous guesses
 - [x] User will get an error message if they input an invalid guess
 - [x] User can see a 'streak' record of how many words they've guessed correctly.
@@ -35,7 +35,7 @@ Here's a walkthrough of implemented user stories:
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with Recordit  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -43,7 +43,8 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had trouble with launching a new activity when clicking on the help button. 
+I had to figure out how to make a resultLauncher. 
 
 ## License
 

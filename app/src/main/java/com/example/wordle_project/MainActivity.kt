@@ -1,21 +1,20 @@
 package com.example.wordle_project
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.text.style.ForegroundColorSpan
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.inputmethod.InputMethodManager
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.toSpannable
+import com.github.jinatonic.confetti.CommonConfetti
 
 class MainActivity : AppCompatActivity() {
     private val wordList = FourLetterWordList
@@ -198,6 +197,9 @@ class MainActivity : AppCompatActivity() {
         button.setBackgroundColor(R.color.button_win)
         Toast.makeText(this, "Congrats! You Won!", Toast.LENGTH_SHORT).show()
         button.text = "Retry?"
+
+        val i =  intArrayOf(Color.BLUE, Color.RED, Color.GREEN, Color.MAGENTA, Color.CYAN, R.color.teal_700)
+        CommonConfetti.rainingConfetti(findViewById(R.id.mainBackground), i).oneShot()
     }
 
     @SuppressLint("ResourceAsColor", "SetTextI18n")

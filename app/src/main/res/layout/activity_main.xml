@@ -2,6 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainBackground"
+    android:windowSoftInputMode="stateAlwaysHidden"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -192,6 +194,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:windowSoftInputMode="stateAlwaysHidden"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Enter a 4 letter word"
@@ -218,7 +221,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/answer"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="110dp"
         android:scaleX="1.5"
         android:scaleY="1.5"
         app:srcCompat="@drawable/help" />
